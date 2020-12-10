@@ -1,0 +1,177 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        tools:context=".HomePageActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/custom_toolbar"
+            android:id="@+id/homepage_toolbar" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/patient_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/patient_img"
+                android:layout_marginRight="20dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/patient_name"
+                    android:text="KÜBRA KESİCİ"
+                    style="@style/ProfileInfo"
+                    android:textColor="@color/appHeader"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/patient_weight"
+                    android:text="Current Health Score : 150"
+                    style="@style/ProfileInfo"
+                    android:layout_below="@+id/patient_name"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/appointments_btn"
+                            android:text="FILL DAILY FORM!"
+                            style="@style/TextInput"
+                            android:background="@drawable/custom_button"
+                            android:width="180dp"
+                            android:height="100dp" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/reminder_btn"
+                            android:text="SET REMINDER"
+                            android:layout_marginLeft="10dp"
+                            style="@style/TextInput"
+                            android:background="@drawable/custom_button"
+                            android:width="180dp"
+                            android:height="100dp"
+                            android:layout_toRightOf="@+id/appointments_btn"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                    <TextView
+                        style="@style/TextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADVİSEADVISEADVISEADVISE" />
+                </LinearLayout>
+
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/emergency_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/emergency_button"
+        style="@style/TextInput"
+        android:text="SOS"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

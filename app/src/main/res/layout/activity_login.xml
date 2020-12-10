@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <include
+        layout="@layout/custom_toolbar"
+        android:id="@+id/login_toolbar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/app_header"
+        style="@style/App_Header"
+        android:layout_above="@id/username"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/username"
+        style="@style/TextInput"
+        android:layout_width="374dp"
+        android:layout_height="59dp"
+        android:layout_above="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/text_input"
+        android:hint="@string/username_hint" />
+
+    <EditText
+        android:id="@+id/password"
+        style="@style/TextInput"
+        android:layout_width="374dp"
+        android:layout_height="59dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/text_input"
+        android:hint="@string/password_hint" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/password">
+        <Button
+            android:id="@+id/signin"
+            android:layout_width="126dp"
+            android:layout_height="56dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:text="SIGN IN"
+            android:layout_below="@+id/password"
+            android:layout_gravity="start"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@drawable/custom_button"
+            android:layout_marginRight="75dp"/>
+
+        <Button
+            android:id="@+id/signout"
+            android:layout_width="126dp"
+            android:layout_height="56dp"
+            android:text="SIGN OUT"
+            android:layout_gravity="end"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:background="@drawable/custom_button"/>
+    </LinearLayout>
+</RelativeLayout>

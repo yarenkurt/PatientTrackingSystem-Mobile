@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PatientTrackerApp</string>
+
+    <string name="app_header">Take Care</string>
+    <string name="username_hint">Enter a username...</string>
+    <string name="password_hint">Enter a password...</string>
+
+    <string name="doctor">DOCTOR</string>
+    <string name="patient">PATIENT</string>
+
+
+</resources>
