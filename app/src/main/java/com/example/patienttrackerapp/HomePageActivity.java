@@ -37,6 +37,10 @@ public class HomePageActivity extends AppCompatActivity {
             case R.id.profile:
                 Intent intentToProfile = new Intent(HomePageActivity.this,ProfileActivity.class);
                 startActivity(intentToProfile);
+
+            case  R.id.logout:
+                Intent intentToLogin = new Intent(HomePageActivity.this,LoginActivity.class);
+                startActivity(intentToLogin);
         }
 
         return super.onOptionsItemSelected(item);
