@@ -21,6 +21,7 @@ public class HomePageActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.homepage_toolbar);
         setSupportActionBar(toolbar);
 
+        //Comments added ////
     }
 
     @Override
