@@ -1,0 +1,236 @@
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:id="@+id/toolbarSignUp"
+                android:background="@color/primaryDarkColor"
+                app:title="@string/app_name"
+                app:titleMarginStart="20dp"
+                style="@style/App_Header"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="25dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tableRowID"
+                    android:paddingBottom="10dp"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/textViewID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ID:"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:padding="5sp"
+                        android:layout_column="0"
+                        />
+
+                    <EditText
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ediTextID"
+                        android:padding="5sp"
+                        android:hint="Enter your ID"
+
+                        android:background="@drawable/custom_edittext"
+                        android:layout_column="1"
+                        />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tableRowName"
+                    android:paddingBottom="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/textViewName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name:"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:padding="5sp"
+                        android:layout_column="0"
+                        />
+                    <EditText
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ediTextName"
+                        android:padding="5sp"
+                        android:background="@drawable/custom_edittext"
+                        android:hint="Enter your Name"
+                        android:layout_column="1"
+                        />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewSurname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Surname:"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:padding="5sp"
+                        android:layout_column="0"
+                        />
+                    <EditText
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ediTextSurname"
+                        android:padding="5sp"
+                        android:hint="Enter your SurName"
+                        android:background="@drawable/custom_edittext"
+                        android:layout_column="1"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Password:"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:padding="5sp"
+                        android:layout_column="0"
+                        />
+                    <EditText
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ediTextPassword"
+                        android:padding="5sp"
+                        android:hint="Enter your Password"
+                        android:background="@drawable/custom_edittext"
+                        android:layout_column="1"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewRePassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RePassword:"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:padding="5sp"
+                        android:layout_column="0"
+                        />
+                    <EditText
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ediTextRePassword"
+                        android:padding="5sp"
+                        android:hint="Enter your RePassword"
+                        android:background="@drawable/custom_edittext"
+                        android:layout_column="1"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewFirstNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First Number:"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:padding="5sp"
+                        android:layout_column="0"
+                        />
+                    <EditText
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ediTextFirstNumber"
+                        android:padding="5sp"
+                        android:background="@drawable/custom_edittext"
+                        android:hint="Enter your First Number"
+                        android:layout_column="1"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewSecondNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Second Number:"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:padding="5sp"
+                        android:layout_column="0"
+                        />
+                    <EditText
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ediTextSecondNumber"
+                        android:padding="5sp"
+                        android:hint="Enter your Second Number"
+                        android:background="@drawable/custom_edittext"
+                        android:layout_column="1"
+                        />
+                </TableRow>
+
+            </TableLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnSignUp"
+                android:text="SIGN UP"
+                android:background="@drawable/custom_button"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onClickSignUp"
+                android:layout_marginTop="20dp"
+                />
+        </LinearLayout>
+
+    </ScrollView>
