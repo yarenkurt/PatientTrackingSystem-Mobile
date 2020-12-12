@@ -56,7 +56,6 @@
             android:layout_below="@+id/password"
             android:layout_gravity="start"
             android:background="@drawable/custom_button"
-            android:backgroundTint="@drawable/custom_button"
             android:layout_marginRight="75dp"/>
 
         <Button

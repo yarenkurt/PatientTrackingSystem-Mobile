@@ -6,7 +6,7 @@
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp"/>
 
-    <size android:width="150sp"
+    <size android:width="80sp"
         android:height="50sp"/>
 
     <gradient

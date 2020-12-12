@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/patient_name"
-                android:text="KÜBRA KESİCİ"
+                android:text="JOHN DOE"
                 style="@style/ProfileInfo"
                 android:textColor="@color/appHeader"
                 />
@@ -148,21 +148,7 @@
                 android:text="05326145287 "
                 style="@style/TextInput" />
         </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Emergent Number 2 : "
-                style="@style/TextInput"
-                android:textColor="@color/appHeader"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/emrg_num3"
-                android:text="05326145287 "
-                style="@style/TextInput" />
-        </TableRow>
+        <TableRow/>
 
     </TableLayout>
 
