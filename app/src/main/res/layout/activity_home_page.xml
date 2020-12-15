@@ -46,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/patient_weight"
-                    android:text="Current Health Score : 150"
+                    android:text="@string/score"
                     style="@style/ProfileInfo"
                     android:layout_below="@+id/patient_name"/>
 
@@ -76,7 +76,7 @@
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/appointments_btn"
+                            android:id="@+id/daily_form_btn"
                             android:text="FILL DAILY FORM!"
                             style="@style/TextInput"
                             android:background="@drawable/custom_button"
@@ -93,7 +93,7 @@
                             android:background="@drawable/custom_button"
                             android:width="180dp"
                             android:height="100dp"
-                            android:layout_toRightOf="@+id/appointments_btn"/>
+                            android:layout_toRightOf="@+id/daily_form_btn"/>
 
                     </RelativeLayout>
                 </LinearLayout>

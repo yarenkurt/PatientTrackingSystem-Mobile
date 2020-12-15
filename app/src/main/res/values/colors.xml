@@ -23,6 +23,8 @@
     <color name="btnStartColor">#4B769A</color>
     <color name="btnEndColor">#67F383</color>
 
+    <color name="form_answer">#FFFFFF</color>
+
     <color name="emergencyBtn">#E30505</color>
 
 

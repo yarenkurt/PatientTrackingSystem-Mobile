@@ -52,17 +52,17 @@
             android:layout_height="56dp"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:text="SIGN IN"
+            android:text="@string/signin"
             android:layout_below="@+id/password"
             android:layout_gravity="start"
             android:background="@drawable/custom_button"
             android:layout_marginRight="75dp"/>
 
         <Button
-            android:id="@+id/signout"
+            android:id="@+id/signup"
             android:layout_width="126dp"
             android:layout_height="56dp"
-            android:text="SIGN OUT"
+            android:text="@string/signup"
             android:layout_gravity="end"
             android:textColor="@color/white"
             android:textSize="20dp"

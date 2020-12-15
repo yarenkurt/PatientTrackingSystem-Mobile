@@ -230,6 +230,7 @@
                 android:layout_gravity="center_horizontal"
                 android:onClick="onClickSignUp"
                 android:layout_marginTop="20dp"
+                style="@style/TextInput"
                 />
         </LinearLayout>
 

@@ -8,5 +8,18 @@
     <string name="doctor">DOCTOR</string>
     <string name="patient">PATIENT</string>
 
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+
+    <string name="score">Current Health Score : </string>
+
+    <string name="signin">SIGN IN</string>
+    <string name="signup">SING UP</string>
+
+    <string name="save">SAVE</string>
+
 
 </resources>

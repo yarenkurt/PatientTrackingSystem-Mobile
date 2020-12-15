@@ -12,20 +12,16 @@
             android:orientation="vertical"
             android:background="@color/windowBackground">
 
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                android:id="@+id/toolbarform"
-                android:background="@color/primaryDarkColor"
-                app:title="Tracking Form"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                />
+            <include
+                layout="@layout/custom_toolbar"
+                android:id="@+id/form_toolbar" />
 
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent"
                android:orientation="vertical"
-               android:layout_marginTop="5dp">
+               android:layout_marginTop="5dp"
+               android:layout_marginBottom="10dp">
 
                <TextView
                    android:id="@+id/question1"
@@ -39,48 +35,50 @@
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:orientation="horizontal"
-                   android:weightSum="5">
+                   android:layout_marginBottom="10dp"
+                   >
                    <RadioGroup
-                       android:id="@+id/answers1"
+                       android:id="@+id/answer1"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:orientation="horizontal"
                        android:gravity="center"
                        >
                        <RadioButton
-                           android:id="@+id/answer1"
+                           android:id="@+id/a1"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="1"
-                           android:layout_marginRight="5dp"
+                           android:text="@string/one"
+                           android:layout_marginRight="40dp"
                            android:layout_marginLeft="10dp"
                            />
                        <RadioButton
-                           android:id="@+id/answer2"
+                           android:id="@+id/a2"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="2"
-                           android:layout_marginRight="5dp"
+                           android:text="@string/two"
+                           android:layout_marginRight="40dp"
                            />
                        <RadioButton
-                           android:id="@+id/answer3"
+                           android:id="@+id/a3"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="3"
-                           android:layout_marginRight="5dp"
+                           android:text="@string/three"
+                           android:layout_marginRight="40dp"
                            />
                        <RadioButton
-                           android:id="@+id/answer4"
+                           android:id="@+id/a4"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="4"
-                           android:layout_marginRight="5dp"
+                           android:text="@string/four"
+                           android:layout_marginRight="40dp"
                            />
                        <RadioButton
-                           android:id="@+id/answer5"
+                           android:id="@+id/a5"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="5"
+                           android:layout_marginRight="40dp"
+                           android:text="@string/five"
                            />
                    </RadioGroup>
 
@@ -90,7 +88,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question2"
@@ -106,45 +105,46 @@
                     android:orientation="horizontal"
                     android:weightSum="5">
                     <RadioGroup
-                        android:id="@+id/answers2"
+                        android:id="@+id/answer2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
                         >
                         <RadioButton
-                            android:id="@+id/answer6"
+                            android:id="@+id/a6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             android:layout_marginLeft="10dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer7"
+                            android:id="@+id/a7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer8"
+                            android:id="@+id/a8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer9"
+                            android:id="@+id/a9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer10"
+                            android:id="@+id/a10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="40dp"
                             android:text="5"
                             />
                     </RadioGroup>
@@ -155,7 +155,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question3"
@@ -171,45 +172,46 @@
                     android:orientation="horizontal"
                     android:weightSum="5">
                     <RadioGroup
-                        android:id="@+id/answers3"
+                        android:id="@+id/answer3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
                         >
                         <RadioButton
-                            android:id="@+id/answer11"
+                            android:id="@+id/a11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             android:layout_marginLeft="10dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer12"
+                            android:id="@+id/a12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer13"
+                            android:id="@+id/a13"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer14"
+                            android:id="@+id/a14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer15"
+                            android:id="@+id/a15"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="40dp"
                             android:text="5"
                             />
                     </RadioGroup>
@@ -220,7 +222,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question4"
@@ -236,45 +239,46 @@
                     android:orientation="horizontal"
                     android:weightSum="5">
                     <RadioGroup
-                        android:id="@+id/answers4"
+                        android:id="@+id/answer4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
                         >
                         <RadioButton
-                            android:id="@+id/answer16"
+                            android:id="@+id/a16"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginRight="5dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer17"
+                            android:id="@+id/a17"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer18"
+                            android:id="@+id/a18"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer19"
+                            android:id="@+id/a19"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer20"
+                            android:id="@+id/a20"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="40dp"
                             android:text="5"
                             />
                     </RadioGroup>
@@ -285,7 +289,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question5"
@@ -301,45 +306,46 @@
                     android:orientation="horizontal"
                     android:weightSum="5">
                     <RadioGroup
-                        android:id="@+id/answers5"
+                        android:id="@+id/answer5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
                         >
                         <RadioButton
-                            android:id="@+id/answer21"
+                            android:id="@+id/a21"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             android:layout_marginLeft="10dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer22"
+                            android:id="@+id/a22"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer23"
+                            android:id="@+id/a23"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer24"
+                            android:id="@+id/a24"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer25"
+                            android:id="@+id/a25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="40dp"
                             android:text="5"
                             />
                     </RadioGroup>
@@ -350,7 +356,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question6"
@@ -366,45 +373,46 @@
                     android:orientation="horizontal"
                     android:weightSum="5">
                     <RadioGroup
-                        android:id="@+id/answers6"
+                        android:id="@+id/answer6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
                         >
                         <RadioButton
-                            android:id="@+id/answer26"
+                            android:id="@+id/a26"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             android:layout_marginLeft="10dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer27"
+                            android:id="@+id/a27"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer28"
+                            android:id="@+id/a28"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer29"
+                            android:id="@+id/a29"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer30"
+                            android:id="@+id/a30"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="40dp"
                             android:text="5"
                             />
                     </RadioGroup>
@@ -415,7 +423,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question7"
@@ -431,121 +440,127 @@
                     android:orientation="horizontal"
                     android:weightSum="5">
                     <RadioGroup
-                        android:id="@+id/answers7"
+                        android:id="@+id/answer7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
                         >
                         <RadioButton
-                            android:id="@+id/answer31"
+                            android:id="@+id/a31"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             android:layout_marginLeft="10dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer32"
+                            android:id="@+id/a32"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer33"
+                            android:id="@+id/a33"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer34"
+                            android:id="@+id/a34"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer35"
+                            android:id="@+id/a35"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="40dp"
                             android:text="5"
                             />
                     </RadioGroup>
 
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question8"
+                    style="@style/FormQuestion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="How Do You Feel Today?"
                     android:layout_marginLeft="13dp"
-                    style="@style/FormQuestion"
-                    />
+                    android:text="How Do You Feel Today?" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:weightSum="5">
+
                     <RadioGroup
-                        android:id="@+id/answers8"
+                        android:id="@+id/answer8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:gravity="center"
-                        >
+                        android:orientation="horizontal">
+
                         <RadioButton
-                            android:id="@+id/answer36"
+                            android:id="@+id/a36"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1"
-                            android:layout_marginRight="5dp"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:layout_marginRight="40dp"
+                            android:text="1" />
+
                         <RadioButton
-                            android:id="@+id/answer37"
+                            android:id="@+id/a37"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2"
-                            android:layout_marginRight="5dp"
-                            />
+                            android:layout_marginRight="40dp"
+                            android:text="2" />
+
                         <RadioButton
-                            android:id="@+id/answer38"
+                            android:id="@+id/a38"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3"
-                            android:layout_marginRight="5dp"
-                            />
+                            android:layout_marginRight="40dp"
+                            android:text="3" />
+
                         <RadioButton
-                            android:id="@+id/answer39"
+                            android:id="@+id/a39"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4"
-                            android:layout_marginRight="5dp"
-                            />
+                            android:layout_marginRight="40dp"
+                            android:text="4" />
+
                         <RadioButton
-                            android:id="@+id/answer40"
+                            android:id="@+id/a40"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5"
-                            />
+                            android:layout_marginRight="40dp"
+                            android:text="5" />
                     </RadioGroup>
 
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question9"
@@ -561,45 +576,46 @@
                     android:orientation="horizontal"
                     android:weightSum="5">
                     <RadioGroup
-                        android:id="@+id/answers9"
+                        android:id="@+id/answer9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
                         >
                         <RadioButton
-                            android:id="@+id/answer41"
+                            android:id="@+id/a41"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             android:layout_marginLeft="10dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer42"
+                            android:id="@+id/a42"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer43"
+                            android:id="@+id/a43"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer44"
+                            android:id="@+id/a44"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer45"
+                            android:id="@+id/a45"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="40dp"
                             android:text="5"
                             />
                     </RadioGroup>
@@ -610,7 +626,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/question10"
@@ -626,45 +643,46 @@
                     android:orientation="horizontal"
                     android:weightSum="5">
                     <RadioGroup
-                        android:id="@+id/answers10"
+                        android:id="@+id/answer10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
                         >
                         <RadioButton
-                            android:id="@+id/answer46"
+                            android:id="@+id/a46"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             android:layout_marginLeft="10dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer47"
+                            android:id="@+id/a47"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer48"
+                            android:id="@+id/a48"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/answer49"
+                            android:id="@+id/a49"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="40dp"
                             />
                         <RadioButton
-                            android:id="@+id/50"
+                            android:id="@+id/a50"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="40dp"
                             android:text="5"
                             />
                     </RadioGroup>
@@ -673,10 +691,12 @@
             </LinearLayout>
             <Button
                 android:id="@+id/saveButton"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Save"
+                style="@style/TextInput"
                 android:layout_gravity="end"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/custom_button"
                 />

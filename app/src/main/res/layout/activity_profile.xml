@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/patient_weight"
-                android:text="Current Health Score : 150"
+                android:text="@string/score"
                 style="@style/ProfileInfo"
                 android:layout_below="@+id/patient_name"/>
         </RelativeLayout>
@@ -148,7 +148,6 @@
                 android:text="05326145287 "
                 style="@style/TextInput" />
         </TableRow>
-        <TableRow/>
 
     </TableLayout>
 
