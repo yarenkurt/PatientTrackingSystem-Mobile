@@ -17,6 +17,7 @@
     <color name="secondaryLightColor">#f8ffd7</color>
     <color name="secondaryDarkColor">#94af76</color>
     <color name="windowBackground">#CBE6AA</color>
+    <color name="ic_bacground_background">#3DDC84</color>
 
     <color name="appHeader">#234C26</color>
 

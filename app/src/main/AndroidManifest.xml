@@ -16,20 +16,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/App_Theme">
-        <activity android:name=".FormActivity2"></activity>
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".FormActivity"></activity>
-        <activity
-            android:name=".ProfileActivity"
-            android:parentActivityName=".HomePageActivity" />
-        <activity android:name=".HomePageActivity">
+        <activity android:name=".LoginPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".FormActivity2" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".FormActivity" />
+        <activity
+            android:name=".ProfileActivity"
+            android:parentActivityName=".HomePageActivity" />
+        <activity android:name=".HomePageActivity">
+
+        </activity>
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>
