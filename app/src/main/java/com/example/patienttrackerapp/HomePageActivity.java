@@ -55,8 +55,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        Toolbar toolbar = findViewById(R.id.homepage_toolbar);
-        setSupportActionBar(toolbar);
+        /*Toolbar toolbar = findViewById(R.id.homepage_toolbar);
+        setSupportActionBar(toolbar);*/
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},PackageManager.PERMISSION_GRANTED);
@@ -64,7 +64,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
 
 
-        //INITIALIZING BUTTONS AND SETTIN CLICK LISTENERS
+       //INITIALIZING BUTTONS AND SETTIN CLICK LISTENERS
         emergency_btn = findViewById(R.id.emergency_btn);
         emergency_btn.setOnClickListener(this);
 
@@ -230,6 +230,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             }
         }
     }
+
     /////////////////////////////////////////////
 
 
