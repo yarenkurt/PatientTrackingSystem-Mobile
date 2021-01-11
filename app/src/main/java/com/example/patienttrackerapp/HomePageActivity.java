@@ -86,13 +86,16 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             case R.id.emergency_btn:
                 getCurrentLocation();
                 callEmergentNumber();
+                break;
 
             case R.id.daily_form_btn:
                 Intent intentToForm = new Intent(HomePageActivity.this,FormActivity2.class);
                 startActivity(intentToForm);
+                break;
 
             case R.id.reminder_btn:
                 ///////////
+                break;
         }
     }
 
@@ -117,6 +120,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(HomePageActivity.this,"LOCATION IS FAILED",Toast.LENGTH_LONG).show();
+
                         }
                      });
         }
