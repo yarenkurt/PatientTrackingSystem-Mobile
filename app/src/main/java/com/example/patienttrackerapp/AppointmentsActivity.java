@@ -1,28 +1,31 @@
 package com.example.patienttrackerapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-   Toolbar toolbar;
+public class AppointmentsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_appointments);
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -33,8 +36,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         toggle.syncState();
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.profile);
-
+        navigationView.setCheckedItem(R.id.appointment);
     }
     @Override
     public void onBackPressed() {
@@ -51,19 +53,15 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                 startActivity(new Intent(this, HomePageActivity.class));
                 break;
             case R.id.profile:
+                startActivity(new Intent(this, ProfileActivity.class));
                 break;
             case R.id.appointmentList:
-                startActivity(new Intent(this, AppointmentsActivity.class));
                 break;
             case R.id.logout:
                 startActivity(new Intent(this,LoginActivity.class));
         }
-        onBackPressed();
+        drawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
-    }
-    public void backHome(View view) {
-        Intent intent = new Intent(ProfileActivity.this, HomePageActivity.class);
-        startActivity(intent);
     }
 }

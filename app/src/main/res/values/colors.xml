@@ -20,6 +20,7 @@
     <color name="ic_bacground_background">#3DDC84</color>
 
     <color name="appHeader">#234C26</color>
+    <color name="loginHeader">#4DA152</color>
 
     <color name="btnStartColor">#4B769A</color>
     <color name="btnEndColor">#67F383</color>
@@ -27,6 +28,7 @@
     <color name="form_answer">#FFFFFF</color>
 
     <color name="emergencyBtn">#E30505</color>
+    <color name="transparent">#00E30505</color>
 
 
 </resources>

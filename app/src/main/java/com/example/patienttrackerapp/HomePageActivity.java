@@ -1,6 +1,7 @@
 package com.example.patienttrackerapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -11,10 +12,10 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,8 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -30,17 +33,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
 
-public class HomePageActivity extends AppCompatActivity implements View.OnClickListener{
+public class HomePageActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     Button emergency_btn;
     Button daily_form_btn;
     Button set_reminder_btn;
-
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
     public static final int REQUEST_CALL=1;
     public static final int REQUEST_SMS=2;
     public static final int REQUEST_LOCATION=3;
@@ -55,8 +61,16 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        /*Toolbar toolbar = findViewById(R.id.homepage_toolbar);
-        setSupportActionBar(toolbar);*/
+        toolbar=findViewById(R.id.homeToolbar);
+        setSupportActionBar(toolbar);
+        drawerLayout=findViewById(R.id.drawer_layout);
+        navigationView=findViewById(R.id.nav_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.nav_open,R.string.nav_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.home);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},PackageManager.PERMISSION_GRANTED);
@@ -64,7 +78,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
 
 
-       //INITIALIZING BUTTONS AND SETTIN CLICK LISTENERS
+       //INITIALIZING BUTTONS AND SETTING  CLICK LISTENERS
         emergency_btn = findViewById(R.id.emergency_btn);
         emergency_btn.setOnClickListener(this);
 
@@ -79,6 +93,35 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    /// MENU ITEM SELECTION
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                break;
+            case R.id.profile:
+                startActivity(new Intent(this, ProfileActivity.class));
+                break;
+            case R.id.appointmentList:
+               startActivity(new Intent(this,AppointmentsActivity.class));
+                break;
+            case R.id.logout:
+                startActivity(new Intent(this,LoginActivity.class));
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
+
+
     //ACCORDING TO ID OF BUTTON, DO DOME ACTIONS
     @Override
     public void onClick(View v) {
@@ -89,12 +132,13 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.daily_form_btn:
-                Intent intentToForm = new Intent(HomePageActivity.this,FormActivity2.class);
+              /* Intent intentToForm = new Intent(HomePageActivity.this,FormActivity2.class);
                 startActivity(intentToForm);
-                break;
+                break;*/
 
             case R.id.reminder_btn:
-                ///////////
+                Intent intentToForm = new Intent(HomePageActivity.this,ReminderPageActivity.class);
+                startActivity(intentToForm);
                 break;
         }
     }
@@ -185,32 +229,6 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     ///////////////////////////////////
 
 
-    //MENU OPTIONS PROCESSES
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.homepage_menu,menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.profile:
-                Intent intentToProfile = new Intent(HomePageActivity.this,ProfileActivity.class);
-                startActivity(intentToProfile);
-
-            case  R.id.logout:
-                Intent intentToLogin = new Intent(HomePageActivity.this,LoginActivity.class);
-                startActivity(intentToLogin);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    ////////////////////////////////////
-
-
     //CALLING WHEN USER REQUEST ANY PERMISSION FIRST TIME////////////
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -234,6 +252,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             }
         }
     }
+
+
 
     /////////////////////////////////////////////
 

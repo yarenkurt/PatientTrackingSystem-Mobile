@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,7 +27,6 @@ float v=0;
 
        LoginAdapter loginAdapter=new LoginAdapter(getSupportFragmentManager());
        loginAdapter.addFragment(LoginTabFragment.getInstance(),"Login");
-        loginAdapter.addFragment(SignUpTabFragment.getInstance(),"SignUp");
 
         viewPager.setAdapter(loginAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -43,5 +43,8 @@ float v=0;
        /* final  LoginAdapter adapter=new LoginAdapter(getSupportFragmentManager(),this,tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));*/
+    }
+
+    public void forgetPassword(View view) {
     }
 }

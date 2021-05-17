@@ -10,7 +10,7 @@
         android:height="50sp"/>
 
     <gradient
-        android:startColor="@color/btnStartColor"
-        android:endColor="@color/btnEndColor"
+        android:startColor="@color/primaryColor"
+        android:endColor="@color/primaryDarkColor"
         />
 </shape>

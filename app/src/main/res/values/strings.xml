@@ -17,10 +17,12 @@
     <string name="score">Current Health Score : </string>
 
     <string name="signin">SIGN IN</string>
-    <string name="signup">SING UP</string>
 
     <string name="save">SAVE</string>
     <string name="sos">SOS</string>
+
+    <string name="nav_open">Navigation Drawer Open</string>
+    <string name="nav_close">Navigation Drawer Close</string>
 
 
 </resources>
