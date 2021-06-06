@@ -44,13 +44,11 @@
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
-
             <RelativeLayout
                 android:id="@+id/reminder_date"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:clickable="true"
-                android:onClick="setDate"
                 android:background="?android:attr/selectableItemBackground">
                 <ImageView
                     android:id="@+id/date_icon"
@@ -74,12 +72,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Date"
+                        android:text="Reminder Starting Date"
                         android:textSize="15dp"/>
                     <TextView
                         android:id="@+id/set_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:hint="Select Date"
                         android:textColor="@color/black"
                         android:textSize="15dp"/>
                 </LinearLayout>
@@ -89,8 +88,7 @@
                 android:id="@+id/reminder_time"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
-                android:clickable="true"
-                android:onClick="setTime"
+
                 android:background="?android:attr/selectableItemBackground">
                 <ImageView
                     android:id="@+id/time_icon"
@@ -114,12 +112,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Date"
+                        android:text="Reminder Starting Time"
                         android:textSize="15dp"/>
                     <TextView
                         android:id="@+id/set_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:hint="Select Time"
                         android:textColor="@color/black"
                         android:textSize="15dp"/>
                 </LinearLayout>
@@ -152,14 +151,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Repeat"
+                        android:text="Reminder Repeat"
                         android:textSize="15dp"/>
-                    <TextView
-                        android:id="@+id/set_repeat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"/>
+
                 </LinearLayout>
                 <Switch
                     android:id="@+id/repeat_switch"
@@ -169,8 +163,6 @@
                    android:layout_alignParentRight="true"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
-                    android:onClick="onSwitchRepeat"
-                    android:checked="true"
                     android:textOn="On"
                     android:textOff="Off"/>
 
@@ -179,8 +171,6 @@
                 android:id="@+id/reminder_repeat_no"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
-                android:clickable="true"
-                android:onClick="setRepeatNo"
                 android:background="?android:attr/selectableItemBackground">
                 <ImageView
                     android:id="@+id/repeat_no_icon"
@@ -204,60 +194,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Repetition Interval"
+                        android:text="Reminder Repetion Interval"
                         android:textSize="15dp"/>
-                    <TextView
-                        android:id="@+id/set_repeat_no"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"/>
-                </LinearLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/reminder_repeat_type"
-                android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:clickable="true"
-                android:onClick="selectRepeatType"
-                android:background="?android:attr/selectableItemBackground">
-                <ImageView
-                    android:id="@+id/repeat_type_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_subject"
-                    android:layout_centerVertical="true"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/repeat_type_icon">
-
-                    <TextView
-                        android:id="@+id/repeat_type_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text="Repetition Interval"
-                        android:textSize="15dp"/>
-                    <TextView
-                        android:id="@+id/set_repeat_type"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"/>
+                        />
                 </LinearLayout>
 
             </RelativeLayout>
 
 
         </LinearLayout>
+
     </ScrollView>
     <View
         android:layout_width="match_parent"

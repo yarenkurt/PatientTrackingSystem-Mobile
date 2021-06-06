@@ -25,21 +25,16 @@
         app:layout_constraintTop_toBottomOf="@id/layoutHeader"
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-110dp"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+        tools:layout_editor_absoluteX="-110dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
 
             <androidx.appcompat.widget.Toolbar
-                android:layout_width="0dp"
-                android:layout_height="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/homeToolbar"
                 android:background="@color/primaryDarkColor"
                 app:navigationIcon="@drawable/ic_menu"
@@ -62,7 +57,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
                     android:text="Hello"
                     android:textColor="@color/white"
                     android:textSize="25sp"
@@ -74,8 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="John"
+                    android:text="FullName"
                     android:textColor="@color/white"
                     android:textSize="25sp"
                     android:textStyle="bold"
@@ -111,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:text="20"
+                        android:text="0"
                         android:textColor="@color/black"
                         app:layout_constraintStart_toEndOf="@id/healthScoreText"
                         app:layout_constraintTop_toTopOf="parent"
@@ -245,7 +238,7 @@
                         android:layout_marginTop="20dp"
                         android:ellipsize="end"
                         android:maxLines="3"
-                        android:text="Your Appointment is at 13:00 on January 21!"
+                        android:hint="You do not have any appointments nearby!"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/appointmentText" />
@@ -296,7 +289,7 @@
                         android:layout_marginTop="20dp"
                         android:ellipsize="end"
                         android:maxLines="3"
-                        android:text="You should walk 30 minutes every day!"
+                        android:hint="Your Advices!"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/adviceText" />

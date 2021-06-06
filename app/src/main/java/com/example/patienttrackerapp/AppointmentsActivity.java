@@ -11,21 +11,44 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.os.IResultReceiver;
+import android.util.Log;
 import android.view.MenuItem;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.patienttrackerapp.db.AccountDbManager;
+import com.example.patienttrackerapp.helpers.Helper;
+import com.example.patienttrackerapp.models.AppointmentInfo;
+import com.example.patienttrackerapp.models.Defaults;
 import com.google.android.material.navigation.NavigationView;
 
-public class AppointmentsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class  AppointmentsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    AppointmentAdapter _adapter;
+    RecyclerView recyclerView ;
+    String _token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointments);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -37,6 +60,9 @@ public class AppointmentsActivity extends AppCompatActivity implements Navigatio
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.appointment);
+        GetAppointments();
+        AccountDbManager _dbManager=new AccountDbManager(this);
+        _token=_dbManager.getToken();
     }
     @Override
     public void onBackPressed() {
@@ -63,5 +89,39 @@ public class AppointmentsActivity extends AppCompatActivity implements Navigatio
         drawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
+    }
+
+    public void GetAppointments(){
+        ArrayList<AppointmentInfo> appointmentList = new ArrayList<AppointmentInfo>();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, Defaults.BASE_URL +"/api/Appointments/MyAppointments",null,
+                response -> {
+                    try {
+                        JSONArray appointments = response.getJSONArray("$values");
+                        for (int i = 0; i < appointments.length(); i++) {
+                            JSONObject app = appointments.getJSONObject(i);
+                            AppointmentInfo appointment = new AppointmentInfo ();
+                            appointment.id= app.getInt("id");
+                            appointment.doctorName= app.getString("doctorName");
+                            appointment.deptName= app.getString("departmentName");
+                            appointment.date= Helper.jsonStringToDate(app.getString("date"));
+                            appointment.expired= app.getBoolean("isExpired");
+                            appointmentList.add(appointment);
+                            _adapter=new AppointmentAdapter(recyclerView.getContext(),appointmentList);
+                            recyclerView.setAdapter(_adapter);
+                        }
+
+                    }catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> Log.e("Error",error.toString())){
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " +_token);
+                return headers;
+            }
+        };
+        requestQueue.add(jsonObjectRequest);
     }
 }

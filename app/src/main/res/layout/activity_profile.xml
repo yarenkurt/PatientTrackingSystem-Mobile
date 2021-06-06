@@ -8,6 +8,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -16,231 +17,276 @@
         app:menu="@menu/homepage_menu"
         android:layout_gravity="start"
         />
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-       >
-        <androidx.appcompat.widget.Toolbar
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        tools:ignore="MissingConstraints">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:id="@+id/toolbar"
-            android:background="@color/primaryDarkColor"
-            android:navigationIcon="@drawable/ic_menu"
-            android:minHeight="?attr/actionBarSize"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:id="@+id/layoutHeader"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/header_background"
-            android:gravity="center_horizontal">
-
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/ic_person"
-                android:layout_marginTop="20dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/userFullName"
-                android:text="Jhon Smith"
-                android:textSize="30sp"
-                />
-        </LinearLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-25dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginStart="80dp"
-            android:background="@drawable/custom_button"
             >
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_back"
-                android:padding="6dp"
-                android:layout_marginStart="7dp"
-                android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                android:clickable="true"
-                android:onClick="backHome"
-                android:background="@drawable/bg_circle"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back to Home"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textStyle="bold"
-
-                />
-
-        </FrameLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:paddingStart="16dp"
-            android:paddingEnd="10dp"
-            android:orientation="vertical">
-            <LinearLayout
+            <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_profile_person"
-                    android:layout_marginEnd="10dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="25sp"
-                        android:text="Full Name"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:id="@+id/fullName"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="FullName"/>
+                android:id="@+id/toolbar"
+                android:background="@color/primaryDarkColor"
+                android:navigationIcon="@drawable/ic_menu"
+                android:minHeight="?attr/actionBarSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.3"
+                android:id="@+id/layoutHeader"
+                android:orientation="vertical"
+                android:background="@drawable/header_background"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_person"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fullName"
+                    android:text="Jhon Smith"
+                    android:textSize="30sp"
+                    />
             </LinearLayout>
-            <LinearLayout
+            <FrameLayout
+                android:id="@+id/profileFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="-8dp"
+                android:layout_marginEnd="80dp"
+                android:layout_marginStart="80dp"
+                android:background="@drawable/custom_button"
+                >
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_info"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_back"
+                    android:padding="6dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:clickable="true"
+                    android:onClick="backHome"
+                    android:background="@drawable/bg_circle"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Back to Home"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
+
+                    />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_user_name"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="25sp"
-                        android:text="Disease"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:id="@+id/disease"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="Heart"/>
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="25sp"
+                            android:textColor="@color/primaryDarkColor"
+                            android:text="Identity Number"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:id="@+id/identityNumber"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:hint="Identity Number"/>
 
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_user_name"
-                    android:layout_marginEnd="10dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_age"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="25sp"
-                        android:text="Identity Number"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:id="@+id/userName"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="28145678123"/>
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="25sp"
+                            android:textColor="@color/primaryDarkColor"
+                            android:text="Age"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:id="@+id/age"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="age"/>
 
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_phone"
-                    android:layout_marginEnd="10dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_info"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="25sp"
-                        android:text="Phone Number"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:id="@+id/phoneNumber"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="05454791104"/>
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="25sp"
+                            android:textColor="@color/primaryDarkColor"
+                            android:text="Disease"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:id="@+id/disease"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:hint="Diseases"/>
 
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_group"
-                    android:layout_marginEnd="10dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_accessibility"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="25sp"
-                        android:text="Emergency Number"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:id="@+id/emergencyNumber"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="05454791104"/>
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="25sp"
+                            android:textColor="@color/primaryDarkColor"
+                            android:text="Weight / Height"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:id="@+id/weight_height"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="Weight/Height"/>
 
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_phone"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="25sp"
+                            android:textColor="@color/primaryDarkColor"
+                            android:text="Phone Number"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:id="@+id/phoneNumber"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="05454791104"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_group"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="25sp"
+                            android:textColor="@color/primaryDarkColor"
+                            android:text="Emergency Number"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:id="@+id/emergencyNumber"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:hint="Emergency Number"/>
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
+
 </androidx.drawerlayout.widget.DrawerLayout>
 
 

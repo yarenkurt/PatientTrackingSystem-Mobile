@@ -2,26 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.patienttrackerapp">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label=""
+        android:icon="@drawable/applogo"
+        android:label="PatientTrackerApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/App_Theme">
-        <activity android:name=".AddReminderActivity"></activity>
-        <activity android:name=".ReminderPageActivity" />
+        android:theme="@style/App_Theme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".InsertOrUpdateActivity"></activity>
+        <activity
+            android:name=".FormActivity"
+            android:parentActivityName=".HomePageActivity" />
+        <activity android:name=".AddReminderActivity" />
+        <activity
+            android:name=".ReminderPageActivity"
+            android:parentActivityName=".HomePageActivity" />
         <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".AppointmentsActivity" />
-        <activity android:name=".LoginPageActivity" />
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".HomePageActivity" />

@@ -23,6 +23,10 @@
 
     <string name="nav_open">Navigation Drawer Open</string>
     <string name="nav_close">Navigation Drawer Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="personimage">personImage</string>
 
 
 </resources>
