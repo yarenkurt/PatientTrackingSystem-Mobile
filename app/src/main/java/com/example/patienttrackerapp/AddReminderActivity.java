@@ -3,14 +3,22 @@ package com.example.patienttrackerapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -35,21 +43,27 @@ public class AddReminderActivity extends AppCompatActivity implements DatePicker
     EditText title;
     TextView date, time;
     Switch _switch;
+    RelativeLayout reminder_repeat_no;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_reminder);
+        //region Items Initialization
         title = findViewById(R.id.reminder_title);
         date = findViewById(R.id.set_date);
         time = findViewById(R.id.set_time);
+        reminder_repeat_no=findViewById(R.id.reminder_repeat_no);
         _switch = findViewById(R.id.repeat_switch);
         _spinner = findViewById(R.id.spinner);
+        reminder_repeat_no.setVisibility(View.INVISIBLE);
         array_spinner = new String[3];
         array_spinner[0] = "8 Hours";
         array_spinner[1] = "12 Hours";
         array_spinner[2] = "24 Hours";
-
+        //endregion
+        //region Selection Date and Time
         date.setOnClickListener(v -> {
             DialogFragment datePicker = new DatePickerFragment();
             datePicker.show(getSupportFragmentManager(), "date picker");
@@ -59,7 +73,18 @@ public class AddReminderActivity extends AppCompatActivity implements DatePicker
             DialogFragment timePicker = new TimePickerFragment();
             timePicker.show(getSupportFragmentManager(), "time picker");
         });
-
+        _switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+          @Override
+          public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+              if(isChecked){
+                  reminder_repeat_no.setVisibility(View.VISIBLE);
+              }
+              else{
+                  reminder_repeat_no.setVisibility(View.INVISIBLE);
+              }
+          }
+         });
+        //endregion
 
         ArrayAdapter adapter = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, array_spinner);
@@ -67,7 +92,7 @@ public class AddReminderActivity extends AppCompatActivity implements DatePicker
         _dbManager = new ReminderDbManager(this);
     }
 
-
+    //region Reminder Methods
     public void Save(View view) {
 
         String titleValue = title.getText().toString();
@@ -116,5 +141,14 @@ public class AddReminderActivity extends AppCompatActivity implements DatePicker
         time.setText(_hour + ":" + _minute);
 
 
+    }
+    //endregion
+
+    public void setAlarm(Calendar alarmCalendar){
+        Toast.makeText(getApplicationContext(),"Alarm is set",Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(getBaseContext(),AlarmReceiver.class);
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(getBaseContext(),1,intent,0);
+        AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,alarmCalendar.getTimeInMillis(),pendingIntent);
     }
 }

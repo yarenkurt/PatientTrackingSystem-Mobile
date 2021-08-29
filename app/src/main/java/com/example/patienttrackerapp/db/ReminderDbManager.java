@@ -32,7 +32,6 @@ public class ReminderDbManager extends DbManagerBase {
     }
     //endregion
 
-
     //region methods
 
     public ReminderModel get(int id) {
@@ -60,7 +59,8 @@ public class ReminderDbManager extends DbManagerBase {
         return result;
     }
 
-    public ArrayList<ReminderModel> getAll() {
+
+    public Cursor getAllByCursor() {
         Cursor cursor = db.query(ReminderOptions.TABLE_NAME,
                 null,
                 null,
@@ -68,20 +68,7 @@ public class ReminderDbManager extends DbManagerBase {
                 null,
                 null,
                 ReminderOptions._ID + " ASC");
-        ArrayList<ReminderModel> result = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            result.add(new ReminderModel(
-                    cursor.getInt(cursor.getColumnIndex(ReminderOptions._ID)),
-                    cursor.getString(cursor.getColumnIndex(ReminderOptions.COLUMN_TITLE)),
-                    cursor.getString(cursor.getColumnIndex(ReminderOptions.COLUMN_STARTED_DATE)),
-                    cursor.getString(cursor.getColumnIndex(ReminderOptions.COLUMN_STARTED_TIME)),
-                    Helper.stringToBoolean(cursor.getString(cursor.getColumnIndex(ReminderOptions.COLUMN_IS_REPEAT))),
-                    cursor.getInt(cursor.getColumnIndex(ReminderOptions.COLUMN_REPEAT_INTERVAL)),
-                    cursor.getString(cursor.getColumnIndex(ReminderOptions.COLUMN_NEXT_STARTED_DATE))
-            ));
-        }
-
-        return result;
+        return cursor;
     }
 
     public Result insert(ReminderModel reminder) {
@@ -101,28 +88,7 @@ public class ReminderDbManager extends DbManagerBase {
 
     }
 
-    public Result update(ReminderModel reminder) {
-        ContentValues cv = new ContentValues();
-        cv.put(ReminderOptions.COLUMN_TITLE, reminder.title);
-        cv.put(ReminderOptions.COLUMN_STARTED_DATE, reminder.startedDate);
-        cv.put(ReminderOptions.COLUMN_STARTED_TIME, reminder.startedTime);
-        cv.put(ReminderOptions.COLUMN_IS_REPEAT, reminder.repeat);
-        cv.put(ReminderOptions.COLUMN_REPEAT_INTERVAL, reminder.interval);
-        cv.put(ReminderOptions.COLUMN_NEXT_STARTED_DATE, reminder.nextStartedDate);
-        try {
-            db.update(ReminderOptions.TABLE_NAME, cv,
-                    ReminderOptions._ID + "=?",
-                    new String[]{String.valueOf(reminder.id)}
-            );
-            return new SuccessResult("updating table is successfully");
-        } catch (Exception e) {
-            return new ErrorResult(e.getMessage());
-        }
-
-    }
-
     public Result delete(int id) {
-
         try {
             db.delete(ReminderOptions.TABLE_NAME, ReminderOptions._ID + "=?", new String[]{String.valueOf(id)});
             return new SuccessResult("deleting table is successfully");

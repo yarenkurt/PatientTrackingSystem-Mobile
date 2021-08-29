@@ -40,6 +40,7 @@ public class AccountDbManager extends DbManagerBase {
     //region methods
 
     public boolean isAuthenticated() {
+
         if (!any()) return false;
 
         AccountModel account = get();

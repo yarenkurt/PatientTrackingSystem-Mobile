@@ -24,11 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.patienttrackerapp.apiservices.PatientService;
 import com.example.patienttrackerapp.db.AccountDbManager;
-import com.example.patienttrackerapp.helpers.Helper;
 import com.example.patienttrackerapp.models.Defaults;
-import com.example.patienttrackerapp.models.PatientInfo;
 import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
@@ -42,7 +39,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    TextView _fullName, _identityNumber, _gsm, _disease, _age, _weightAndHeight;
+    TextView _fullName, _identityNumber, _gsm, _disease, _age, _weightAndHeight,_emergencyNumber;
     String _token;
 
     @Override
@@ -68,6 +65,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         _disease = findViewById(R.id.disease);
         _age = findViewById(R.id.age);
         _weightAndHeight = findViewById(R.id.weight_height);
+        _emergencyNumber = findViewById(R.id.emergencyNumber);
         AccountDbManager _dbManager = new AccountDbManager(this);
         _token = _dbManager.getToken();
         Get();
@@ -92,6 +90,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                             _gsm.setText(response.getString("gsm"));
                             _age.setText(Integer.toString(age));
                             _weightAndHeight.setText(weight + " / " + height);
+                            _emergencyNumber.setText(response.getString("emergencyNumber"));
                             JSONObject obj = new JSONObject(response.getString("diseases"));
                             JSONArray diseases = new JSONArray(obj.getString("$values"));
                             _disease.setText(diseases.toString()

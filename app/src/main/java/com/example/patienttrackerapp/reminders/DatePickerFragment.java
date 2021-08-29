@@ -18,6 +18,8 @@ import com.example.patienttrackerapp.R;
 import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment {
+
+    //region Creating Date Method
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -29,4 +31,5 @@ public class DatePickerFragment extends DialogFragment {
         return new DatePickerDialog(getActivity(), R.style.DatePicker, (DatePickerDialog.OnDateSetListener) getActivity(), year, month, day);
 
     }
+    //endregion
 }

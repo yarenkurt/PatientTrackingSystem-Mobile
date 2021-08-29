@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
         service=new AuthenticationService(getApplicationContext());
     }
+
     private void Login(){
         progressBar.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.INVISIBLE);

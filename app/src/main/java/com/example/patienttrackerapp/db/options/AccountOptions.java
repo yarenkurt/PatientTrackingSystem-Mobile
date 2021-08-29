@@ -3,6 +3,8 @@ package com.example.patienttrackerapp.db.options;
 import android.provider.BaseColumns;
 
 public final class AccountOptions implements BaseColumns {
+
+    //region Account Table Columns
     public static final String TABLE_NAME = "Accounts";
     public static final String COLUMN_ACCOUNT_ID = "AccountId";
     public static final String COLUMN_FULL_NAME = "FullName";
@@ -11,7 +13,9 @@ public final class AccountOptions implements BaseColumns {
     public static final String COLUMN_REFRESH_TOKEN = "RefreshToken";
     public static final String COLUMN_TOKEN_EXPIRED = "TokenExpiration";
     public static final String COLUMN_REFRESH_TOKEN_EXPIRED = "RefreshTokenExpiration";
+    //endregion
 
+    //region Drop and Create SQL Options
     public static final String DROP_SQL ="DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public static final String CREATE_SQL =
@@ -26,4 +30,5 @@ public final class AccountOptions implements BaseColumns {
                     COLUMN_TOKEN_EXPIRED + " TEXT NOT NULL, " +
                     COLUMN_REFRESH_TOKEN_EXPIRED + " TEXT NOT NULL" +
                     "); ";
+    //endregion
 }

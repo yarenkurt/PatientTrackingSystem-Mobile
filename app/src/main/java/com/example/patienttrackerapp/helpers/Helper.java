@@ -11,6 +11,8 @@ import java.util.Date;
 
 public class Helper {
 
+    //region Helper Methods
+
     @SuppressLint("SimpleDateFormat")
     public static Date jsonStringToDate(String source) {
         try {
@@ -86,5 +88,5 @@ public class Helper {
         return Double.parseDouble(source);
     }
 
-
+//endregion
 }

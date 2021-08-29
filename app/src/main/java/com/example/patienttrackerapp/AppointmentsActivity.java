@@ -45,11 +45,9 @@ public class  AppointmentsActivity extends AppCompatActivity implements Navigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointments);
 
+        //region Initialization Items
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout=findViewById(R.id.drawer_layout);
@@ -60,10 +58,14 @@ public class  AppointmentsActivity extends AppCompatActivity implements Navigati
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.appointment);
+        //endregion
+
         GetAppointments();
         AccountDbManager _dbManager=new AccountDbManager(this);
         _token=_dbManager.getToken();
     }
+
+    //region Menu Behaviours
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -90,7 +92,9 @@ public class  AppointmentsActivity extends AppCompatActivity implements Navigati
 
         return true;
     }
+    //endregion
 
+    //region Get All Appointments Method for Showing Them
     public void GetAppointments(){
         ArrayList<AppointmentInfo> appointmentList = new ArrayList<AppointmentInfo>();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -124,4 +128,5 @@ public class  AppointmentsActivity extends AppCompatActivity implements Navigati
         };
         requestQueue.add(jsonObjectRequest);
     }
+    //endregion
 }

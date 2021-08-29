@@ -34,7 +34,7 @@ public class AuthenticationService {
         _context = context;
         _dbManager = new AccountDbManager(_context);
     }
-
+    //region Login Operators
     public void Login(JSONObject object, final VolleyCallBack callBack) {
         RequestQueue requestQueue = Volley.newRequestQueue(_context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, BASE_URL + "/login", object,
@@ -46,7 +46,6 @@ public class AuthenticationService {
                                 JSONObject obj = new JSONObject(response.getString("data"));
                                 String tokenExpiration=obj.getString("tokenExpiration");
                                 String refreshTokenExpiration=obj.getString("refreshTokenExpiration");
-
                                 TokenInfo tokenInfo = new TokenInfo(
                                         obj.getString("token"),
                                         obj.getString("refreshToken"),
@@ -108,7 +107,9 @@ public class AuthenticationService {
         });
         requestQueue.add(jsonObjectRequest);
     }
+    //endregion
 
+    //region Get UserInfo Operator
     public void GetUserInfo(TokenInfo tokenInfo) {
         RequestQueue requestQueue = Volley.newRequestQueue(_context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, BASE_URL + "/UserInfo", null,
@@ -147,6 +148,6 @@ public class AuthenticationService {
         };
         requestQueue.add(jsonObjectRequest);
     }
-
+   //endregion
 
 }

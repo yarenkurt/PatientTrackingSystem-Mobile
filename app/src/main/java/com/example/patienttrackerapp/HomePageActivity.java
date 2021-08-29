@@ -62,7 +62,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     LocationManager _locationManager;
     String _provider;
     Location _location;
-
+    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,10 +143,10 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, Defaults.BASE_URL + "/api/Advices/MyAdvices", null,
                 response -> {
                     try {
-                        JSONArray appointments = new JSONArray(response.getString("$values"));
+                        JSONArray advices = new JSONArray(response.getString("$values"));
                         StringBuilder advicesText = new StringBuilder();
-                        for (int i = 0; i < appointments.length(); i++) {
-                            JSONObject obj = appointments.getJSONObject(i);
+                        for (int i = 0; i < advices.length(); i++) {
+                            JSONObject obj = advices.getJSONObject(i);
                             advicesText.append(i + 1).append(". ").append(obj.getString("description")).append("\n");
                         }
                         advice.setText(advicesText.toString());
@@ -241,6 +241,14 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     private void emergency() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(HomePageActivity.this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_PERMISSIONS_REQUEST_LOCATION);
+
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "You have to location access", Toast.LENGTH_SHORT).show();
             return;
         }
         double latutide = _locationManager.getLastKnownLocation(_provider).getLatitude();

@@ -21,11 +21,14 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     Context context;
     ArrayList<AppointmentInfo> appointmentList;
 
+    //region Constructor
     public AppointmentAdapter(Context context, ArrayList<AppointmentInfo> appointmentList) {
         this.context = context;
         this.appointmentList = appointmentList;
     }
+    //endregion
 
+    //region Initialization Items and Setting Their Values
 
     @NonNull
     @Override
@@ -76,4 +79,5 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             soon = itemView.findViewById(R.id.soon);
         }
     }
+    //endregion
 }
